@@ -36,6 +36,7 @@ if [ ! -f "./.git" ]
 	then
 	git init
 fi
+git pull origin master
 date=`date`
 cat << EOF > time.txt
 $date
@@ -46,8 +47,13 @@ if [ ! -f "./config.json" ]
 	echo "请输入github的项目名，如xxx/xxx.git："
 	read git
 	echo yes | git remote add origin git@github.com:$git
+	echo "请输入用户名："
+	read name
+	echo "请输入邮箱："
+	read email
+	git config user.name $name
+	git config user.email $email
 fi
-git pull origin master
 git add .
 git commit -m "$date"
 git push origin master
