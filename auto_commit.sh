@@ -21,9 +21,6 @@ if [ $? -ne 0 ]
 	echo "请把上面的密文粘贴到github去"
 fi
 
-ssh-agent bash
-ssh-add ~/.ssh/id_rsa_juhezi
-
 path="./auto_commit"
 file="./auto_commit/time.txt"
 if [ ! -x $path ]
